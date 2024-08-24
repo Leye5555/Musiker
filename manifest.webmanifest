@@ -1,0 +1,12 @@
+
+[{
+    "name": "Musiker Music App",
+    "short_name": "Simple music",
+    "description": "Simple music player",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "icons": [
+       ]
+        }]
