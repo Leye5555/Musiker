@@ -119,9 +119,12 @@ function playAndPause(event) {
   const songPath = filteredSong[0].path;
   if (audio.paused && !isTheSameSong) {
     audio.src = songPath;
+    event.target.src = "assets/spinner.svg";
     audio.setAttribute("title", targetSong);
-    audio.play();
-    event.target.src = "assets/pause-svgrepo-com.svg";
+    audio.onloadeddata = function () {
+      audio.play();
+      event.target.src = "assets/pause-svgrepo-com.svg";
+    };
   } else if (!audio.paused && isTheSameSong) {
     audio.pause();
     event.target.src = "assets/playlist-btn.svg";
@@ -130,11 +133,19 @@ function playAndPause(event) {
     const newBtnState = document.getElementById(prevSong);
     newBtnState.src = "assets/playlist-btn.svg";
     audio.src = songPath;
+    event.target.src = "assets/spinner.svg";
     audio.setAttribute("title", targetSong);
-    audio.play();
-    event.target.src = "assets/pause-svgrepo-com.svg";
+    audio.onloadeddata = function () {
+      audio.play();
+      event.target.src = "assets/pause-svgrepo-com.svg";
+    };
   } else if (audio.paused && isTheSameSong) {
-    audio.play();
-    event.target.src = "assets/pause-svgrepo-com.svg";
+    event.target.src = "assets/spinner.svg";
+    audio.src = songPath;
+    audio.setAttribute("title", targetSong);
+    audio.onloadeddata = function () {
+      audio.play();
+      event.target.src = "assets/pause-svgrepo-com.svg";
+    };
   }
 }
