@@ -39,7 +39,7 @@ body::before {
     ),
     url(./assets/hero_img.webp);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: 50% 50%;
 }
 
@@ -55,6 +55,7 @@ body::after {
   );
   background-repeat: no-repeat;
   background-size: 100%;
+
   background-position: 50% 50%;
 }
 
@@ -66,13 +67,15 @@ body::after {
   min-height: 100vh;
   position: relative;
   z-index: 10;
+  height: max-content;
+  overflow: hidden;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  z-index: 999;
+  z-index: 999999;
   left: 0;
   right: 0;
   margin: auto;
@@ -163,10 +166,12 @@ main {
 
 .btns button {
   padding: 8px 20px;
-  width: 213px;
+  width: 100%;
+  max-width: 213px;
   height: 53px;
   display: flex;
   gap: 5px;
+  white-space: nowrap;
   align-items: center;
   justify-content: center;
   color: var(--neutral-clr);
@@ -323,6 +328,26 @@ section .stream-text h1 {
 }
 
 @media (max-width: 768px) {
+  .app,
+  header {
+    padding: 16px;
+  }
+
+  .hero {
+    flex-direction: column;
+    gap: 40px;
+    padding-right: 40px;
+    align-items: flex-start;
+  }
+
+  .btns {
+    flex-wrap: wrap;
+  }
+  .btns button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    width: 150px;
+  }
   .song-meta .wrap {
     flex-wrap: wrap;
     gap: 10px 40px;
@@ -339,7 +364,20 @@ section .stream-text h1 {
     align-items: flex-start;
   }
 
+  #song-title {
+    max-width: 60vw;
+  }
+  .pla span {
+    display: none;
+  }
+
   .song-meta > .wrap > div:last-child {
     padding-left: 40px;
+  }
+  .stream-logo {
+    height: 50px;
+  }
+  .stream-logo > div {
+    padding: 0rem;
   }
 }
