@@ -338,6 +338,7 @@ section .stream-text h1 {
     gap: 40px;
     padding-right: 40px;
     align-items: flex-start;
+    margin-bottom: 40px;
   }
 
   .btns {
